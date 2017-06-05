@@ -1,6 +1,8 @@
 C:\TestProjects\SourceCombiner\SourceCombiner\bin\Debug\SourceCombiner.exe.config
 C:\TestProjects\SourceCombiner\SourceCombiner\bin\Debug\SourceCombiner.exe
 C:\TestProjects\SourceCombiner\SourceCombiner\bin\Debug\SourceCombiner.pdb
+C:\TestProjects\SourceCombiner\SourceCombiner\bin\Debug\Microsoft.Build.dll
+C:\TestProjects\SourceCombiner\SourceCombiner\bin\Debug\Microsoft.Build.Framework.dll
+C:\TestProjects\SourceCombiner\SourceCombiner\bin\Debug\Microsoft.Build.Engine.dll
 C:\TestProjects\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.exe
 C:\TestProjects\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.pdb
-C:\TestProjects\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.csprojResolveAssemblyReference.cache
