@@ -6,3 +6,12 @@ C:\TestProjects\SourceCombiner\SourceCombiner\bin\Debug\Microsoft.Build.Framewor
 C:\TestProjects\SourceCombiner\SourceCombiner\bin\Debug\Microsoft.Build.Engine.dll
 C:\TestProjects\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.exe
 C:\TestProjects\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.pdb
+C:\Source\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\SourceCombiner.exe.config
+C:\Source\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\SourceCombiner.exe
+C:\Source\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\SourceCombiner.pdb
+C:\Source\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\Microsoft.Build.dll
+C:\Source\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\Microsoft.Build.Framework.dll
+C:\Source\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\Microsoft.Build.Engine.dll
+C:\Source\Repos\SourceCombiner\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.csproj.CoreCompileInputs.cache
+C:\Source\Repos\SourceCombiner\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.exe
+C:\Source\Repos\SourceCombiner\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.pdb
