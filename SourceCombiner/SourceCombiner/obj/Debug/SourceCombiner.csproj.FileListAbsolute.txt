@@ -15,3 +15,12 @@ C:\Source\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\Microsoft
 C:\Source\Repos\SourceCombiner\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.csproj.CoreCompileInputs.cache
 C:\Source\Repos\SourceCombiner\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.exe
 C:\Source\Repos\SourceCombiner\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.pdb
+C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\SourceCombiner.exe.config
+C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\SourceCombiner.exe
+C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\SourceCombiner.pdb
+C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\Microsoft.Build.dll
+C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\Microsoft.Build.Framework.dll
+C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\Microsoft.Build.Engine.dll
+C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.exe
+C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.pdb
+C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.csprojResolveAssemblyReference.cache

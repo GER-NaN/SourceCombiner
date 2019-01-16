@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Construction;
+using System.Text.RegularExpressions;
 
 namespace SourceCombiner
 {
@@ -20,7 +21,12 @@ namespace SourceCombiner
         {
             if (args == null || args.Length < 2)
             {
-                Console.WriteLine("You must provide at least 2 arguments. The first is the solution file path and the second is the output file path.");
+                //TODO Make a real cmd line parse tool with help args etc...
+                Console.WriteLine("You must provide at least 2 arguments. " +
+                                  "The first is the solution file path and the second is the output file path. " +
+                                  "There is an optional third and fourth parameter. " +
+                                  "The third indicates if the output file should be opened upon completion. " +
+                                  "The fourth parameter indicates whether minification should be applied.");
                 return;
             }
 
@@ -33,10 +39,23 @@ namespace SourceCombiner
                 Boolean.TryParse(args[2],out openFile);
             }
 
+            bool minify = false;
+            if (args.Length > 3)
+            {
+                Boolean.TryParse(args[3], out minify);
+            }
+
             var filesToParse = GetSourceFileNames(projectFilePath);
             var namespaces = GetUniqueNamespaces(filesToParse);
 
             string outputSource = GenerateCombinedSource(namespaces,filesToParse);
+
+            if (minify)
+            {
+                outputSource = StripComments(outputSource);
+                outputSource = StripWhitespace(outputSource);
+            }
+
             File.WriteAllText(outputFilePath,outputSource);
 
             if (openFile)
@@ -63,12 +82,12 @@ namespace SourceCombiner
             {
                 IEnumerable<string> sourceLines = File.ReadAllLines(file);
                 sb.AppendLine(@"//*** SourceCombiner -> original file " + Path.GetFileName(file) + " ***");
-                var openingTag = "using ";
+                var usingDirectiveStartsWith = "using ";
                 foreach (var sourceLine in sourceLines)
                 {
                     var trimmedLine = sourceLine.Trim().Replace("  ", " ");
-                    var isUsingDir = trimmedLine.StartsWith(openingTag) && trimmedLine.EndsWith(";");
-                    if (!string.IsNullOrWhiteSpace(sourceLine) && !isUsingDir)
+                    var isUsingDirective = trimmedLine.StartsWith(usingDirectiveStartsWith) && trimmedLine.EndsWith(";");
+                    if (!string.IsNullOrWhiteSpace(sourceLine) && !isUsingDirective)
                     {
                         sb.AppendLine(sourceLine);
                     }
@@ -125,6 +144,48 @@ namespace SourceCombiner
             }
 
             return names;
+        }
+
+        /// <summary>Removes all comments from the source text</summary>
+        /// <param name="source">The source file loaded into a string</param>
+        /// <returns>A new string where all comments have been removed</returns>
+        /// <remarks>https://stackoverflow.com/a/3524689/1363780</remarks>
+        private static string StripComments(string source)
+        {
+            var cleanedSource = string.Empty;
+
+            var blockComments = @"/\*(.*?)\*/";
+            var lineComments = @"//(.*?)\r?\n";
+            var strings = @"""((\\[^\n]|[^""\n])*)""";
+            var verbatimStrings = @"@(""[^""]*"")+";
+
+            var pattern = blockComments + "|" + lineComments + "|" + strings + "|" + verbatimStrings;
+            var matchEvaluator = new MatchEvaluator(CommentEvaluator);
+
+            cleanedSource = Regex.Replace(source, pattern ,matchEvaluator,RegexOptions.Singleline);
+
+            return cleanedSource;
+        }
+
+        //MatchEvaluator Delegate: https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.matchevaluator?view=netframework-4.7.2
+        private static string CommentEvaluator(Match match)
+        {
+            if (match.Value.StartsWith("/*") || match.Value.StartsWith("//"))
+            {
+                return string.Empty;// m.Value.StartsWith("//") ? Environment.NewLine : "";
+            }
+            return match.Value; // Keep the literal strings
+        }
+
+
+        private static string StripWhitespace(string source)
+        {
+            //Replace all the newlines
+            var cleaned = source.Replace(Environment.NewLine, string.Empty);
+
+            //It would be nice to also strip extra spaces and tabs
+
+            return cleaned;
         }
     }
 }
