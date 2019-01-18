@@ -26,22 +26,23 @@ namespace SourceCombiner
                 return;
             }
 
-            string projectFilePath = args[0];
-            string outputFilePath = args[1];
+            var solutionFilePath = args[0];
+            var outputFilePath = args[1];
+            var openFile = false;
+            var minify = false;
 
-            bool openFile = false;
             if (args.Length > 2)
             {
-                Boolean.TryParse(args[2],out openFile);
+                bool.TryParse(args[2],out openFile);
             }
 
-            bool minify = false;
             if (args.Length > 3)
             {
-                Boolean.TryParse(args[3], out minify);
+                bool.TryParse(args[3], out minify);
             }
 
-            var filesToParse = GetSourceFileNames(projectFilePath);
+
+            var filesToParse = GetSourceFileNames(solutionFilePath);
             var namespaces = GetUniqueNamespaces(filesToParse);
 
             string outputSource = GenerateCombinedSource(namespaces,filesToParse);
@@ -180,11 +181,10 @@ namespace SourceCombiner
             var cleaned = source.Replace(Environment.NewLine, string.Empty);
 
             //It would be nice to also strip extra spaces and tabs
-
             return cleaned;
         }
 
-
+        /// <summary>Shows a standard help info with information about the arguments</summary>
         private static void ShowHelp()
         {
 
