@@ -11,20 +11,21 @@ Only support for Visual Studio is included. A Visual Studio solution file is
 required to use this tool.
 
 Parameters
-    -   Solution File (Required): The full file path to the solution (.sln) 
-        file for your project.
+
+- Solution File (Required): The full file path to the solution (.sln) 
+file for your project.
     
-    -   Output Location (Required): The full file path where the generated c#
-        file should be output.
+- Output Location (Required): The full file path where the generated c#
+file should be output.
         
-    -   Open When Done (Optional): A true or false value indicating whether 
-        the generated file should be opened and displayed after generation. 
-        The default value is false.
+- Open When Done (Optional): A true or false value indicating whether 
+the generated file should be opened and displayed after generation. 
+The default value is false.
         
-    -   Minify Output (Optional): A true or false value indicating whether the
-        generated file should be minified. The minification process is not a 
-        complete minification. Newlines and comments are the only items removed 
-        from the source. The default value is false.");
+- Minify Output (Optional): A true or false value indicating whether the
+generated file should be minified. The minification process is not a 
+complete minification. Newlines and comments are the only items removed 
+from the source. The default value is false.");
 
 
 Example from command line:
