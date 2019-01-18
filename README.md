@@ -25,7 +25,7 @@ The default value is false.
 - Minify Output (Optional): A true or false value indicating whether the
 generated file should be minified. The minification process is not a 
 complete minification. Newlines and comments are the only items removed 
-from the source. The default value is false.");
+from the source. The default value is false.
 
 
 Example from command line:
