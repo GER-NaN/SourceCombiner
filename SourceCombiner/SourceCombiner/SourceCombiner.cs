@@ -12,6 +12,7 @@ namespace SourceCombiner
 {
     public sealed class SourceCombiner
     {
+        private const string HelpCommands = "help -help --help -h  /? ?";
         private static readonly List<string> SourceFilesToIgnore = new List<string>
         {
             "AssemblyInfo.cs"
@@ -19,14 +20,9 @@ namespace SourceCombiner
 
         static void Main(string[] args)
         {
-            if (args == null || args.Length < 2)
+            if ((args.Length == 1 && HelpCommands.Contains(args[0])) || (args.Length < 2))
             {
-                //TODO Make a real cmd line parse tool with help args etc...
-                Console.WriteLine("You must provide at least 2 arguments. " +
-                                  "The first is the solution file path and the second is the output file path. " +
-                                  "There is an optional third and fourth parameter. " +
-                                  "The third indicates if the output file should be opened upon completion. " +
-                                  "The fourth parameter indicates whether minification should be applied.");
+                ShowHelp();
                 return;
             }
 
@@ -186,6 +182,40 @@ namespace SourceCombiner
             //It would be nice to also strip extra spaces and tabs
 
             return cleaned;
+        }
+
+
+        private static void ShowHelp()
+        {
+
+            Console.WriteLine(@"
+SourceCombiner.exe 
+Gerald Eckert @ 2019
+https://github.com/GER-NaN/SourceCombiner
+
+Combines multiple c# files and Visual Studio projects into a single 
+consolidated source file. This is useful for submitting your work to a website
+or online judge program that only accepts single files as input.
+
+To combine multiple projects they must be added into the solution. A 
+referenced project will be ignored.
+
+Parameters
+    -   Solution File (Required): The full file path to the solution (.sln) 
+        file for your project.
+    
+    -   Output Location (Required): The full file path where the generated c#
+        file should be output.
+
+    -   Open When Done (Optional): A true or false value indicating whether 
+        the generated file should be opened and displayed after generation. 
+        The default value is false.
+
+    -   Minify Output (Optional): A true or false value indicating whether the
+        generated file should be minified. The minification process is not a 
+        complete minification. Newlines and comments are the only items removed 
+        from the source. The default value is false.");
+
         }
     }
 }

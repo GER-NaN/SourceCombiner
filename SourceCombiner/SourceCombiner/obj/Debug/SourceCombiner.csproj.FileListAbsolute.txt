@@ -23,4 +23,3 @@ C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\Microsoft.Bu
 C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\bin\Debug\Microsoft.Build.Engine.dll
 C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.exe
 C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.pdb
-C:\Git\Repos\SourceCombiner\SourceCombiner\SourceCombiner\obj\Debug\SourceCombiner.csprojResolveAssemblyReference.cache
